@@ -1,33 +1,93 @@
 .new-recipe-container {
     margin: 20px 20px;
-    border: 2px solid red;
+    background-color: #E1D3B6; /* Light Khaki background for the form */
+    border-radius: 8px; /* Optional: Adds rounded corners */
+    padding: 20px;
+}
+
+.new-recipe-container input, select, textarea {
+    border: 1px solid #3D5F82; /* Cyan border for input fields */
+    border-radius: 4px; /* Optional: Adds rounded corners */
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+.new-recipe-container textarea {
+    width: 70%;
+    resize: none;
+    height: 100px;
 }
 
 .new-recipe-container_main-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    gap: 20px; /* Adds space between columns */
 }
 
 .new-recipe-container_column-left, .new-recipe-container_column-right {
     width: 98%;
-    border: 2px solid red;
 }
 
 .submit-button-container {
-    border: 2px solid red;
     grid-column: span 2;
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
 }
 
-.new-recipe-container_ingredients_form input {
+.submit-button-container button {
+    background-color: #C67E10; /* Sunkist Orange for button */
+    color: white;
     border: none;
-    border-bottom: 1px solid black;
-    margin-right: 10px;
+    padding: 10px 20px;
+    border-radius: 4px; /* Optional: Adds rounded corners */
+    cursor: pointer;
+}
+
+.submit-button-container button:hover {
+    background-color: #F6C46D; /* Light Orange for hover effect */
 }
 
 .new-recipe-container_facts_form, .new-recipe-container_times_form, .new-recipe-container_type_form {
     display: flex;
     flex-direction: column;
+}
+
+h2, h4 {
+    color: #202334; /* Deep Blue for headings */
+}
+
+label {
+    color: #3D5F82; /* Cyan for labels */
+    font-weight: bold;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #C67E10; /* Sunkist Orange for focused input fields */
+    outline: none;
+}
+
+.new-recipe-container_ingredients {
+    margin-top: 20px;
+}
+
+.new-recipe-container_ingredients ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.new-recipe-container_ingredients li {
+    background-color: #F6C46D; /* Light Orange for ingredient list items */
+    padding: 5px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+#name {
+    margin-bottom: 10px;
+}
+
+#quantity, #unit {
+    width: 30px;
 }

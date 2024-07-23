@@ -73,7 +73,7 @@ export default function NewRecipe() {
           </label>
           <br />
           <label htmlFor="instructions">
-            Instructions:{" "}
+            Instructions: <br />
             <textarea
               id="instructions"
               name="instructions"
@@ -88,39 +88,41 @@ export default function NewRecipe() {
               onSubmit={handleAddIngredient}
               className="new-recipe-container_ingredients_form"
             >
-              <label htmlFor="ingredient">
-                Ingredient:{" "}
-                <input
-                  type="text"
-                  id="ingredient"
-                  name="ingredient"
-                  value={ingredient}
-                  onChange={(e) => setIngredient(e.target.value)}
-                  required
-                />
-              </label>
-              <label htmlFor="quantity">
-                Quantity:{" "}
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  required
-                />
-              </label>
-              <label htmlFor="unit">
-                Unit:{" "}
-                <input
-                  type="text"
-                  id="unit"
-                  name="unit"
-                  value={unit}
-                  onChange={(e) => setUnit(e.target.value)}
-                  required
-                />
-              </label>
+              <div>
+                <label htmlFor="ingredient">
+                  Ingredient:{" "}
+                  <input
+                    type="text"
+                    id="ingredient"
+                    name="ingredient"
+                    value={ingredient}
+                    onChange={(e) => setIngredient(e.target.value)}
+                    required
+                  />
+                </label>
+                <label htmlFor="quantity">
+                  Quantity:{" "}
+                  <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    value={quantity}
+                    onChange={(e) => setQuantity(e.target.value)}
+                    required
+                  />
+                </label>
+                <label htmlFor="unit">
+                  Unit:{" "}
+                  <input
+                    type="text"
+                    id="unit"
+                    name="unit"
+                    value={unit}
+                    onChange={(e) => setUnit(e.target.value)}
+                    required
+                  />
+                </label>
+              </div>
               <button type="submit">Add Ingredient</button>
             </form>
             <ul>
@@ -169,6 +171,64 @@ export default function NewRecipe() {
               </label>
             </div>
           </div>
+        </div>
+        <div className="new-recipe-container_column-right">
+          <div className="new-recipe-container_facts">
+            <h4>Nutritional Facts</h4>
+            <div className="new-recipe-container_facts_form">
+              <label htmlFor="servings">
+                Servings:{" "}
+                <input
+                  type="text"
+                  id="servings"
+                  name="servings"
+                  value={form.servings}
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label htmlFor="calories_per_serving">
+                Calories per Serving:{" "}
+                <input
+                  type="number"
+                  id="calories_per_serving"
+                  name="calories_per_serving"
+                  value={form.calories_per_serving}
+                  onChange={handleChange}
+                />
+              </label>
+              <label htmlFor="protein">
+                Protein:{" "}
+                <input
+                  type="text"
+                  id="protein"
+                  name="protein"
+                  value={form.protein}
+                  onChange={handleChange}
+                />
+              </label>
+              <label htmlFor="carbohydrates">
+                Carbohydrates:{" "}
+                <input
+                  type="text"
+                  id="carbohydrates"
+                  name="carbohydrates"
+                  value={form.carbohydrates}
+                  onChange={handleChange}
+                />{" "}
+              </label>
+              <label htmlFor="fat">
+                Fat:{" "}
+                <input
+                  type="text"
+                  id="fat"
+                  name="fat"
+                  value={form.fat}
+                  onChange={handleChange}
+                />
+              </label>
+            </div>
+          </div>
           <div className="new-recipe-container_type">
             <h4>Recipe Information</h4>
             <div className="new-recipe-container_type_form">
@@ -209,64 +269,6 @@ export default function NewRecipe() {
                     </option>
                   ))}
                 </select>
-              </label>
-            </div>
-          </div>
-        </div>
-        <div className="new-recipe-container_column-right">
-          <div className="new-recipe-container_facts">
-            <h4>Nutritional Facts</h4>
-            <div className="new-recipe-container_facts_form">
-              <label htmlFor="servings">
-                Servings:{" "}
-                <input
-                  type="text"
-                  id="servings"
-                  name="servings"
-                  value={form.servings}
-                  onChange={handleChange}
-                  required
-                />
-              </label>
-              <label htmlFor="calories_per_serving">
-                Calories per Serving:
-                <input
-                  type="number"
-                  id="calories_per_serving"
-                  name="calories_per_serving"
-                  value={form.calories_per_serving}
-                  onChange={handleChange}
-                />
-              </label>
-              <label htmlFor="protein">
-                Protein:{" "}
-                <input
-                  type="text"
-                  id="protein"
-                  name="protein"
-                  value={form.protein}
-                  onChange={handleChange}
-                />
-              </label>
-              <label htmlFor="carbohydrates">
-                Carbohydrates:
-                <input
-                  type="text"
-                  id="carbohydrates"
-                  name="carbohydrates"
-                  value={form.carbohydrates}
-                  onChange={handleChange}
-                />{" "}
-              </label>
-              <label htmlFor="fat">
-                Fat:{" "}
-                <input
-                  type="text"
-                  id="fat"
-                  name="fat"
-                  value={form.fat}
-                  onChange={handleChange}
-                />
               </label>
             </div>
           </div>
