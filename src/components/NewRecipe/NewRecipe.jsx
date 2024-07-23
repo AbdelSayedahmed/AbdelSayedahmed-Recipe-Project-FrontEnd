@@ -11,7 +11,7 @@ export default function NewRecipe() {
     cooking_time: "",
     total_time: "",
     servings: "",
-    calories_per_serving: "Unspecified",
+    calories_per_serving: "0",
     protein: "Unspecified",
     carbohydrates: "Unspecified",
     fat: "Unspecified",
@@ -40,6 +40,13 @@ export default function NewRecipe() {
       setQuantity("");
       setUnit("");
     }
+  };
+
+  const handleDeleteIngredient = (index) => {
+    setForm((prevForm) => ({
+      ...prevForm,
+      ingredients: prevForm.ingredients.filter((_, i) => i !== index),
+    }));
   };
 
   const handleSubmit = (e) => {
@@ -84,10 +91,7 @@ export default function NewRecipe() {
           </label>
           <div className="new-recipe-container_ingredients">
             <h4>Ingredients</h4>
-            <form
-              onSubmit={handleAddIngredient}
-              className="new-recipe-container_ingredients_form"
-            >
+            <div className="new-recipe-container_ingredients_form">
               <div>
                 <label htmlFor="ingredient">
                   Ingredient:{" "}
@@ -97,7 +101,6 @@ export default function NewRecipe() {
                     name="ingredient"
                     value={ingredient}
                     onChange={(e) => setIngredient(e.target.value)}
-                    required
                   />
                 </label>
                 <label htmlFor="quantity">
@@ -108,7 +111,6 @@ export default function NewRecipe() {
                     name="quantity"
                     value={quantity}
                     onChange={(e) => setQuantity(e.target.value)}
-                    required
                   />
                 </label>
                 <label htmlFor="unit">
@@ -119,16 +121,23 @@ export default function NewRecipe() {
                     name="unit"
                     value={unit}
                     onChange={(e) => setUnit(e.target.value)}
-                    required
                   />
                 </label>
               </div>
-              <button type="submit">Add Ingredient</button>
-            </form>
+              <button type="button" onClick={handleAddIngredient}>
+                Add Ingredient
+              </button>
+            </div>
             <ul>
               {form.ingredients.map((ing, index) => (
                 <li key={index}>
-                  {ing.quantity} {ing.unit} of {ing.ingredient}
+                  {ing.quantity} {ing.unit} of {ing.ingredient}{" "}
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteIngredient(index)}
+                  >
+                    Delete
+                  </button>
                 </li>
               ))}
             </ul>
@@ -241,7 +250,7 @@ export default function NewRecipe() {
                   onChange={handleChange}
                   required
                 >
-                  <option value="" selected disabled>
+                  <option value="" disabled>
                     Select a category
                   </option>
                   {recipeCategories.map((category) => (
@@ -260,7 +269,7 @@ export default function NewRecipe() {
                   onChange={handleChange}
                   required
                 >
-                  <option value="" selected disabled>
+                  <option value="" disabled>
                     Select an origin
                   </option>
                   {countryOrigins.map((origin) => (
