@@ -1,0 +1,15 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    margin: 0;
+    padding: 0;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover, button:hover {
+    cursor: pointer;
+}
