@@ -1,0 +1,8 @@
+.recipedetails-container{
+    text-align: center;
+    img{
+        height: 40vw;
+        width: 40vw;
+    }
+    /* transform: translate(3vw,3vw); */
+}

@@ -8,8 +8,9 @@ import EditRecipe from "./components/EditRecipe/EditRecipe.jsx";
 import Home from "./components/Home/Home.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import NewRecipe from "./components/NewRecipe/NewRecipe.jsx";
-import Recipe from "./components/Recipe/Recipe.jsx";
 import Recipes from "./components/Recipes/Recipes.jsx";
+import RecipeDetails from "./components/RecipeDetails/RecipeDetails.jsx";
+
 
 // Styling
 import "./App.css";
@@ -22,7 +23,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/recipes/:id" element={<Recipe />} />
+        <Route path="/recipes/:id" element={<RecipeDetails/>} />
         <Route path="/recipes/:id/edit" element={<EditRecipe />} />
         <Route path="/recipes/new" element={<NewRecipe />} />
       </Routes>
