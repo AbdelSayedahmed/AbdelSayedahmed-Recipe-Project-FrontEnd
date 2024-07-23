@@ -69,3 +69,22 @@ export const countryOrigins = [
   "Turkish",
   "Vietnamese",
 ];
+
+// Create Recipe
+export default async function createRecipe(recipe) {
+  const options = {
+    method: "POST",
+    body: JSON.stringify(recipe),
+    headers: { "Content-Type": "application/json" },
+  };
+  try {
+    const response = await fetch(import.meta.env.VITE_URL, options);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error creating recipe:", error);
+    throw error;
+  }
+}

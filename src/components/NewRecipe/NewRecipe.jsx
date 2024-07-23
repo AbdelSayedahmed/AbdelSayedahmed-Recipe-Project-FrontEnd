@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { recipeCategories, countryOrigins } from "../../utils/functions";
 import "./NewRecipe.css";
+import { useNavigate } from "react-router-dom";
+import createRecipe from "../../utils/functions";
 
 export default function NewRecipe() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     name: "",
     ingredients: [],
@@ -49,7 +52,7 @@ export default function NewRecipe() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const updatedForm = {
       ...form,
@@ -58,7 +61,12 @@ export default function NewRecipe() {
       carbohydrates: form.carbohydrates || "Unspecified",
       fat: form.fat || "Unspecified",
     };
-    // logic here when fetch is available
+    try {
+      const newRecipe = await createRecipe(updatedForm);
+      navigate(`/transactions/${newRecipe.id}`);
+    } catch (error) {
+      console.error("Failed to create recipe:", error);
+    }
     console.log(updatedForm);
   };
 
