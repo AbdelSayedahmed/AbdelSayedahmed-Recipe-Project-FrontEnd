@@ -1,5 +1,5 @@
 import React from "react";
-import { recipeCategories, countryOrigins } from "../../utils/functions";
+import { recipeCategories, countryOrigins } from "../../../utils/functions";
 
 export default function RecipeInfo({ form, handleChange }) {
   return (

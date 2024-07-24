@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import createRecipe from "../../utils/functions";
 import { recipeCategories, countryOrigins } from "../../utils/functions";
-import RecipeInfo from "./RecipeInfo";
-import Ingredients from "./Ingredients";
-import Times from "./Times";
-import NutritionalFacts from "./NutritionalFacts";
-import ImageUpload from "./ImageUpload";
+import RecipeInfo from "./Children/RecipeInfo";
+import Ingredients from "./Children/Ingredients";
+import Times from "./Children/Times";
+import NutritionalFacts from "./Children/NutritionalFacts";
+import ImageUpload from "./Children/ImageUpload";
 import "./NewRecipe.css";
 
 export default function NewRecipe() {
