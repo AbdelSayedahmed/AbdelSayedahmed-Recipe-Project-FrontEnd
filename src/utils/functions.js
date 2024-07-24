@@ -1,4 +1,4 @@
-const URL = import.meta.env.VITE_URL;
+const URL = import.meta.env.VITE_API_URL;
 
 export const recipeCategories = [
   "Appetizers",
