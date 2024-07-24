@@ -79,7 +79,7 @@ export async function createRecipe(recipe) {
     headers: { "Content-Type": "application/json" },
   };
   try {
-    const response = await fetch(`${URL}`, options);
+    const response = await fetch(`${URL}/recipes`, options);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -92,7 +92,7 @@ export async function createRecipe(recipe) {
 
 export async function getRecipe(id) {
   try {
-    const response = await fetch(`${URL}/${id}`);
+    const response = await fetch(`${URL}/recipes/${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
