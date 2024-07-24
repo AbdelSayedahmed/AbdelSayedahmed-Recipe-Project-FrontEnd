@@ -102,3 +102,13 @@ export async function getRecipe(id) {
     throw error;
   }
 }
+
+export async function updateTransaction(recipe) {
+  const options = {
+    method: "PUT",
+    body: JSON.stringify(recipe),
+    headers: { "Content-Type": "application/json" },
+  };
+  const response = await fetch(`${URL}/recipes/${id}`, options);
+  return await response.json();
+}

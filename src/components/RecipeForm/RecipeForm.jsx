@@ -23,7 +23,7 @@ export default function RecipeForm() {
     protein: "",
     carbohydrates: "",
     fat: "",
-    imageUrl: "",
+    imageurl: "",
     category: "",
     origin: "",
   });
@@ -37,7 +37,13 @@ export default function RecipeForm() {
       const fetchRecipe = async () => {
         try {
           const recipe = await getRecipe(id);
-          setForm(recipe);
+          const parsedIngredients = JSON.parse(recipe.ingredients);
+          const parsedInstructions = JSON.parse(recipe.instructions).join(". ");
+          setForm({
+            ...recipe,
+            ingredients: parsedIngredients,
+            instructions: parsedInstructions,
+          });
         } catch (error) {
           console.error("Failed to fetch recipe:", error);
         }
@@ -47,7 +53,10 @@ export default function RecipeForm() {
   }, [id]);
 
   const splitInstructions = (instructions) =>
-    instructions.split(". ").map((a) => a + ".");
+    instructions
+      .split(". ")
+      .map((instr) => instr.trim())
+      .filter((instr) => instr);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,7 +87,8 @@ export default function RecipeForm() {
     e.preventDefault();
     const updatedForm = {
       ...form,
-      instructions: splitInstructions(form.instructions),
+      instructions: JSON.stringify(splitInstructions(form.instructions)),
+      ingredients: JSON.stringify(form.ingredients),
       calories_per_serving: form.calories_per_serving || "0",
       protein: form.protein || "Unspecified",
       carbohydrates: form.carbohydrates || "Unspecified",
