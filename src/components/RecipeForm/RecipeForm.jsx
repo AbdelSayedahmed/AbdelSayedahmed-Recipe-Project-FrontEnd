@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { createRecipe, getRecipe } from "../../utils/functions";
+import { createRecipe, getRecipe, updateRecipe } from "../../utils/functions";
 import RecipeInfo from "./Children/RecipeInfo";
 import Ingredients from "./Children/Ingredients";
 import Times from "./Children/Times";
@@ -95,10 +95,15 @@ export default function RecipeForm() {
       fat: form.fat || "Unspecified",
     };
     try {
-      const newRecipe = await createRecipe(updatedForm);
-      navigate(`/recipes/${newRecipe.id}`);
+      let recipe;
+      if (id) {
+        recipe = await updateRecipe(id, updatedForm);
+      } else {
+        recipe = await createRecipe(updatedForm);
+      }
+      navigate(`/recipes/${recipe.id}`);
     } catch (error) {
-      console.error("Failed to create recipe:", error);
+      console.error("Failed to submit recipe:", error);
     }
   };
 
