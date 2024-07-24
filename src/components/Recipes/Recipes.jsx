@@ -3,7 +3,8 @@ import "./Recipes.css";
 import Recipe from "../Recipe/Recipe";
 export default function Recipes() {
   const [recipes,setRecipes]=useState([])
-  const API = 'http://localhost:3012';
+  const API = import.meta.env.VITE_API_URL;
+
 
   useEffect(() => {
     fetch(`${API}/recipes`)
