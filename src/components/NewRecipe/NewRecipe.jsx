@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import createRecipe from "../../utils/functions";
-import { recipeCategories, countryOrigins } from "../../utils/functions";
 import RecipeInfo from "./Children/RecipeInfo";
 import Ingredients from "./Children/Ingredients";
 import Times from "./Children/Times";
