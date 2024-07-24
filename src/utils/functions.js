@@ -90,3 +90,8 @@ export default async function createRecipe(recipe) {
     throw error;
   }
 }
+
+// Get recipe by id
+export default async function getRecipe(id) {
+  return fetch(`${URL}/${id}`).then((response) => response.json());
+}

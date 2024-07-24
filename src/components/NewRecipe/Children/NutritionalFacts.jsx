@@ -44,7 +44,7 @@ export default function NutritionalFacts({ form, handleChange }) {
             name="carbohydrates"
             value={form.carbohydrates}
             onChange={handleChange}
-          />{" "}
+          />
         </label>
         <label htmlFor="fat">
           Fat:{" "}
