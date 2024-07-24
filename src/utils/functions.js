@@ -72,8 +72,7 @@ export const countryOrigins = [
   "Vietnamese",
 ];
 
-// Create Recipe
-export default async function createRecipe(recipe) {
+export async function createRecipe(recipe) {
   const options = {
     method: "POST",
     body: JSON.stringify(recipe),
@@ -91,7 +90,15 @@ export default async function createRecipe(recipe) {
   }
 }
 
-// Get recipe by id
-export default async function getRecipe(id) {
-  return fetch(`${URL}/${id}`).then((response) => response.json());
+export async function getRecipe(id) {
+  try {
+    const response = await fetch(`${URL}/${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching recipe:", error);
+    throw error;
+  }
 }
