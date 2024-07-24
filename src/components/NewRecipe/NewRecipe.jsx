@@ -9,15 +9,15 @@ export default function NewRecipe() {
   const [form, setForm] = useState({
     name: "",
     ingredients: [],
-    instructions: "",
+    instructions: [],
     preparation_time: "",
     cooking_time: "",
     total_time: "",
     servings: "",
-    calories_per_serving: "0",
-    protein: "Unspecified",
-    carbohydrates: "Unspecified",
-    fat: "Unspecified",
+    calories_per_serving: "",
+    protein: "",
+    carbohydrates: "",
+    fat: "",
     imageUrl: "",
     category: "",
     origin: "",
@@ -26,6 +26,9 @@ export default function NewRecipe() {
   const [ingredient, setIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("");
+
+  const splitInstructions = (instructions) =>
+    instructions.split(". ").map((a) => a + ".");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,14 +59,15 @@ export default function NewRecipe() {
     e.preventDefault();
     const updatedForm = {
       ...form,
-      calories_per_serving: form.calories_per_serving || "Unspecified",
+      instructions: splitInstructions(form.instructions),
+      calories_per_serving: form.calories_per_serving || "0",
       protein: form.protein || "Unspecified",
       carbohydrates: form.carbohydrates || "Unspecified",
       fat: form.fat || "Unspecified",
     };
     try {
       const newRecipe = await createRecipe(updatedForm);
-      navigate(`/transactions/${newRecipe.id}`);
+      navigate(`/recipes/${newRecipe.id}`);
     } catch (error) {
       console.error("Failed to create recipe:", error);
     }

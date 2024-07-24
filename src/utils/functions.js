@@ -1,3 +1,5 @@
+const URL = import.meta.env.VITE_URL;
+
 export const recipeCategories = [
   "Appetizers",
   "Baking",
@@ -78,7 +80,7 @@ export default async function createRecipe(recipe) {
     headers: { "Content-Type": "application/json" },
   };
   try {
-    const response = await fetch(import.meta.env.VITE_URL, options);
+    const response = await fetch(`${URL}`, options);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
