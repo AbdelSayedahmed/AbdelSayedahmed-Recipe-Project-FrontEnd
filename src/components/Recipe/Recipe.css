@@ -1,0 +1,23 @@
+.recipe-container{
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    gap: 2vw;
+    margin: 2vw;
+    img{
+        
+        grid-area:1/2;
+        width: 100%;
+        height: auto;
+        border-radius: 0.6vw;
+        display: block;
+
+  
+    }
+    h2{
+        grid-column:2/3;
+        text-align: center;
+
+
+    }
+   
+}

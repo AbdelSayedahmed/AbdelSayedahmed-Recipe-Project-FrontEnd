@@ -1,6 +1,24 @@
-import React from "react";
+import  { useEffect, useState } from "react";
 import "./Recipes.css";
-
+import Recipe from "../Recipe/Recipe";
 export default function Recipes() {
-  return <h2>Recipes</h2>;
+  const [recipes,setRecipes]=useState([])
+  const API = 'http://localhost:3012';
+
+  useEffect(() => {
+    fetch(`${API}/recipes`)
+      .then((res) => {
+      return res.json()
+      })
+      .then(resJSON => {
+        setRecipes(resJSON)
+   
+      })
+    .catch((error) => console.error(error))
+  }, [])
+
+  
+  return (<div className="recipes-container">{recipes.map(recipe=><Recipe recipe={recipe}/>)}
+    
+  </div>);
 }
