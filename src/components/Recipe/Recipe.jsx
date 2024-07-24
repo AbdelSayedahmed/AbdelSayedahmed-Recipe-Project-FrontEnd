@@ -5,5 +5,8 @@ import { Link } from "react-router-dom";
 export default function Recipe({recipe}) {
   const API = 'http://localhost:3012';
 
-  return(<Link to={`/recipes/${recipe.id}`}><div>{recipe.name}</div></Link>);
+  return(<Link to={`/recipes/${recipe.id}`}><div className="recipe-container">
+    <h2>{recipe.name}</h2>
+    <img src={recipe.imageurl} alt="" />
+    </div></Link>);
 }
