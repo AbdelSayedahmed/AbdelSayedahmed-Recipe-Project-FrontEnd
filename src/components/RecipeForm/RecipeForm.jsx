@@ -1,15 +1,16 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import createRecipe from "../../utils/functions";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { createRecipe, getRecipe } from "../../utils/functions";
 import RecipeInfo from "./Children/RecipeInfo";
 import Ingredients from "./Children/Ingredients";
 import Times from "./Children/Times";
 import NutritionalFacts from "./Children/NutritionalFacts";
 import ImageUpload from "./Children/ImageUpload";
-import "./NewRecipe.css";
+import "./RecipeForm.css";
 
-export default function NewRecipe() {
+export default function RecipeForm() {
   const navigate = useNavigate();
+  const { id } = useParams();
   const [form, setForm] = useState({
     name: "",
     ingredients: [],
@@ -30,6 +31,20 @@ export default function NewRecipe() {
   const [ingredient, setIngredient] = useState("");
   const [quantity, setQuantity] = useState("");
   const [unit, setUnit] = useState("");
+
+  useEffect(() => {
+    if (id) {
+      const fetchRecipe = async () => {
+        try {
+          const recipe = await getRecipe(id);
+          setForm(recipe);
+        } catch (error) {
+          console.error("Failed to fetch recipe:", error);
+        }
+      };
+      fetchRecipe();
+    }
+  }, [id]);
 
   const splitInstructions = (instructions) =>
     instructions.split(". ").map((a) => a + ".");
@@ -79,7 +94,7 @@ export default function NewRecipe() {
 
   return (
     <div className="new-recipe-container">
-      <h2>Create your own Recipe</h2>
+      <h2>{id ? "Edit your Recipe" : "Create your own Recipe"}</h2>
       <form onSubmit={handleSubmit} className="new-recipe-container_main-form">
         <div className="new-recipe-container_column-left">
           <RecipeInfo form={form} handleChange={handleChange} />
@@ -102,7 +117,9 @@ export default function NewRecipe() {
           <ImageUpload form={form} handleChange={handleChange} />
         </div>
         <div className="submit-button-container">
-          <button type="submit">Create Recipe</button>
+          <button type="submit">
+            {id ? "Update Recipe" : "Create Recipe"}
+          </button>
         </div>
       </form>
     </div>
