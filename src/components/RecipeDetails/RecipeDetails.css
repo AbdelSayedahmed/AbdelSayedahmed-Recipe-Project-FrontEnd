@@ -4,5 +4,18 @@
         height: 40vw;
         width: 40vw;
     }
+    .ingredients-container{
+        text-align: center;
+        display: flex;
+        transform: translate(42vw,0vw);
+        /* background: linear-gradient(45deg, red,white);   */
+    width: 40vw;  }
+    .instructions-container{
+        /* font-weight: 700; */
+       
+         }
+         li{
+            list-style-type: disc;
+         }
     /* transform: translate(3vw,3vw); */
 }
