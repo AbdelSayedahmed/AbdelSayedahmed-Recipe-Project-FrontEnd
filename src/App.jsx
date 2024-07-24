@@ -6,7 +6,6 @@ import { Routes, Route } from "react-router-dom";
 import AboutUs from "./components/AboutUs/AboutUs.jsx";
 import Home from "./components/Home/Home.jsx";
 import Nav from "./components/Nav/Nav.jsx";
-import Recipe from "./components/Recipe/Recipe.jsx";
 import RecipeForm from "./components/RecipeForm/RecipeForm.jsx";
 import Recipes from "./components/Recipes/Recipes.jsx";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails.jsx";
@@ -23,7 +22,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/recipes" element={<Recipes />} />
-        <Route path="/recipes/:id" element={<Recipe />} />
+        <Route path="/recipes/:id" element={<RecipeDetails />} />
         <Route path="/recipes/:id/edit" element={<RecipeForm />} />
         <Route path="/recipes/new" element={<RecipeForm />} />
       </Routes>
