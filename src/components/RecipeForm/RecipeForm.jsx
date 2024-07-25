@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { createRecipe, getRecipe } from "../../utils/functions";
+import { createRecipe, getRecipe, updateRecipe } from "../../utils/functions";
 import RecipeInfo from "./Children/RecipeInfo";
 import Ingredients from "./Children/Ingredients";
 import Times from "./Children/Times";
@@ -23,21 +23,26 @@ export default function RecipeForm() {
     protein: "",
     carbohydrates: "",
     fat: "",
-    imageUrl: "",
+    imageurl: "",
     category: "",
     origin: "",
   });
 
   const [ingredient, setIngredient] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [unit, setUnit] = useState("");
+  const [amount, setAmount] = useState("");
 
   useEffect(() => {
     if (id) {
       const fetchRecipe = async () => {
         try {
           const recipe = await getRecipe(id);
-          setForm(recipe);
+          const parsedIngredients = JSON.parse(recipe.ingredients);
+          const parsedInstructions = JSON.parse(recipe.instructions).join(" ");
+          setForm({
+            ...recipe,
+            ingredients: parsedIngredients,
+            instructions: parsedInstructions,
+          });
         } catch (error) {
           console.error("Failed to fetch recipe:", error);
         }
@@ -47,7 +52,10 @@ export default function RecipeForm() {
   }, [id]);
 
   const splitInstructions = (instructions) =>
-    instructions.split(". ").map((a) => a + ".");
+    instructions
+      .split(". ")
+      .map((instr) => instr.trim())
+      .filter((instr) => instr);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,14 +64,13 @@ export default function RecipeForm() {
 
   const handleAddIngredient = (e) => {
     e.preventDefault();
-    if (ingredient && quantity && unit) {
+    if (ingredient && amount) {
       setForm((prevForm) => ({
         ...prevForm,
-        ingredients: [...prevForm.ingredients, { ingredient, quantity, unit }],
+        ingredients: [...prevForm.ingredients, { ingredient, amount }],
       }));
       setIngredient("");
-      setQuantity("");
-      setUnit("");
+      setAmount("");
     }
   };
 
@@ -78,17 +85,23 @@ export default function RecipeForm() {
     e.preventDefault();
     const updatedForm = {
       ...form,
-      instructions: splitInstructions(form.instructions),
+      instructions: JSON.stringify(splitInstructions(form.instructions)),
+      ingredients: JSON.stringify(form.ingredients),
       calories_per_serving: form.calories_per_serving || "0",
       protein: form.protein || "Unspecified",
       carbohydrates: form.carbohydrates || "Unspecified",
       fat: form.fat || "Unspecified",
     };
     try {
-      const newRecipe = await createRecipe(updatedForm);
-      navigate(`/recipes/${newRecipe.id}`);
+      let recipe;
+      if (id) {
+        recipe = await updateRecipe(id, updatedForm);
+      } else {
+        recipe = await createRecipe(updatedForm);
+      }
+      navigate(`/recipes/${recipe.id}`);
     } catch (error) {
-      console.error("Failed to create recipe:", error);
+      console.error("Failed to submit recipe:", error);
     }
   };
 
@@ -103,10 +116,8 @@ export default function RecipeForm() {
             handleChange={handleChange}
             ingredient={ingredient}
             setIngredient={setIngredient}
-            quantity={quantity}
-            setQuantity={setQuantity}
-            unit={unit}
-            setUnit={setUnit}
+            amount={amount}
+            setAmount={setAmount}
             handleAddIngredient={handleAddIngredient}
             handleDeleteIngredient={handleDeleteIngredient}
           />
