@@ -19,16 +19,7 @@ export default function RecipeDetails() {
         console.log(res);
       });
   }, [id]);
-//  let array=[]
-//  let originArray=[]
-//   for (let element of recipeDetails){
-//     if(!array.includes(element.origin)){
-//       originArray.push(element.origin)
-
-//     }
-//     array.push(element.origin)
-    
-//   }
+ 
 
 
   return (
