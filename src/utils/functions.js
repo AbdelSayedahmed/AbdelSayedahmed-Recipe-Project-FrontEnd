@@ -103,7 +103,7 @@ export async function getRecipe(id) {
   }
 }
 
-export async function updateRecipe(recipe) {
+export async function updateRecipe(id, recipe) {
   const options = {
     method: "PUT",
     body: JSON.stringify(recipe),

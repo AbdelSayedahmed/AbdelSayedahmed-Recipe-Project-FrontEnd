@@ -37,7 +37,7 @@ export default function RecipeForm() {
         try {
           const recipe = await getRecipe(id);
           const parsedIngredients = JSON.parse(recipe.ingredients);
-          const parsedInstructions = JSON.parse(recipe.instructions).join(". ");
+          const parsedInstructions = JSON.parse(recipe.instructions).join(" ");
           setForm({
             ...recipe,
             ingredients: parsedIngredients,
