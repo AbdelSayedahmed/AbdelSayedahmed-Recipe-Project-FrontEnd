@@ -30,7 +30,6 @@ export default function RecipeForm() {
 
   const [ingredient, setIngredient] = useState("");
   const [amount, setAmount] = useState("");
-  const [unit, setUnit] = useState("");
 
   useEffect(() => {
     if (id) {
@@ -65,14 +64,13 @@ export default function RecipeForm() {
 
   const handleAddIngredient = (e) => {
     e.preventDefault();
-    if (ingredient && amount && unit) {
+    if (ingredient && amount) {
       setForm((prevForm) => ({
         ...prevForm,
-        ingredients: [...prevForm.ingredients, { ingredient, amount, unit }],
+        ingredients: [...prevForm.ingredients, { ingredient, amount }],
       }));
       setIngredient("");
       setAmount("");
-      setUnit("");
     }
   };
 
@@ -120,8 +118,6 @@ export default function RecipeForm() {
             setIngredient={setIngredient}
             amount={amount}
             setAmount={setAmount}
-            unit={unit}
-            setUnit={setUnit}
             handleAddIngredient={handleAddIngredient}
             handleDeleteIngredient={handleDeleteIngredient}
           />

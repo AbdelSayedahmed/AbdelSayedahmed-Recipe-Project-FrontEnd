@@ -7,8 +7,6 @@ export default function Ingredients({
   setIngredient,
   amount,
   setAmount,
-  unit,
-  setUnit,
   handleAddIngredient,
   handleDeleteIngredient,
 }) {
@@ -28,23 +26,13 @@ export default function Ingredients({
             />
           </label>
           <label htmlFor="amount">
-            amount:{" "}
+            Amount(unit):{" "}
             <input
-              type="number"
+              type="text"
               id="amount"
               name="amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-            />
-          </label>
-          <label htmlFor="unit">
-            Unit:{" "}
-            <input
-              type="text"
-              id="unit"
-              name="unit"
-              value={unit}
-              onChange={(e) => setUnit(e.target.value)}
             />
           </label>
         </div>
@@ -55,7 +43,7 @@ export default function Ingredients({
       <ul>
         {form.ingredients.map((ing, index) => (
           <li key={index}>
-            {ing.amount} {ing.unit} of {ing.ingredient}{" "}
+            {ing.amount} of {ing.ingredient}{" "}
             <button type="button" onClick={() => handleDeleteIngredient(index)}>
               Delete
             </button>
