@@ -1,11 +1,22 @@
 .recipe-of-the-day,
 .recipe-list,
 .latest-recipes,
-.check-us-out {
+.check-us-out,
+.brief-summary {
     margin: 20px;
 }
 
-.recipe-of-the-day-container_img-container {
+.brief-summary {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.brief-summary-para, .recipe-of-the-day h3, .check-us-out h3 {
+    margin-right: 20px;
+    text-align: center;
+}
+
+.recipe-of-the-day-container_img-container, .brief-summary_img-container {
     border-radius: 15%;
     width: 30vw;
     height: 30vw;
@@ -13,7 +24,7 @@
     position: relative;
 }
 
-.recipe-of-the-day-container_img-container img {
+.recipe-of-the-day-container_img-container img, .brief-summary_img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -24,7 +35,7 @@
 
 .home-container hr {
     background-color: #202334;
-    height: 20px;
+    height: 40px;
     border: none;
     margin: 0px;
 }
@@ -121,6 +132,8 @@
 .check-us-out-container {
     display: flex;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon {
