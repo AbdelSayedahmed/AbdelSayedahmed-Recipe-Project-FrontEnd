@@ -5,10 +5,8 @@ export default function Ingredients({
   handleChange,
   ingredient,
   setIngredient,
-  quantity,
-  setQuantity,
-  unit,
-  setUnit,
+  amount,
+  setAmount,
   handleAddIngredient,
   handleDeleteIngredient,
 }) {
@@ -27,24 +25,14 @@ export default function Ingredients({
               onChange={(e) => setIngredient(e.target.value)}
             />
           </label>
-          <label htmlFor="quantity">
-            Quantity:{" "}
-            <input
-              type="number"
-              id="quantity"
-              name="quantity"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-            />
-          </label>
-          <label htmlFor="unit">
-            Unit:{" "}
+          <label htmlFor="amount">
+            Amount(unit):{" "}
             <input
               type="text"
-              id="unit"
-              name="unit"
-              value={unit}
-              onChange={(e) => setUnit(e.target.value)}
+              id="amount"
+              name="amount"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
             />
           </label>
         </div>
@@ -55,7 +43,7 @@ export default function Ingredients({
       <ul>
         {form.ingredients.map((ing, index) => (
           <li key={index}>
-            {ing.quantity} {ing.unit} of {ing.ingredient}{" "}
+            {ing.amount} of {ing.ingredient}{" "}
             <button type="button" onClick={() => handleDeleteIngredient(index)}>
               Delete
             </button>

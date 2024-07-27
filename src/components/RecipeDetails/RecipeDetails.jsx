@@ -20,12 +20,15 @@ export default function RecipeDetails() {
       });
   }, [id]);
  
+  function deleteRecipes(){
+    fetch(`${API}/recipes/${id}`,{method:`DELETE`}).then(()=>navigate(`/recipes`)).catch(error=>console.error(error))
 
+}
 
   return (
     <div className="recipedetails-container">
       <h2>{recipeDetails.name}({recipeDetails.origin})</h2>
-      <img src={recipeDetails.imageurl} alt="" />
+      <img src={recipeDetails.imageurl} alt={recipeDetails.imageurl} />
       <div className="information-container">
         <h5
         >Carbs
@@ -42,18 +45,18 @@ export default function RecipeDetails() {
      
         
       </div>
-      <h3 >Ingredients</h3>
+      <h1 >Ingredients</h1>
       <div className="ingredients-container">
      
         <ul>
-          {recipeDetails.imageurl
+          {recipeDetails.name
             ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
                 <li>{ingredient.ingredient}</li>
               ))
             : null}
         </ul>
         <ul>
-          {recipeDetails.imageurl
+          {recipeDetails.name
             ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
                 <div>{ingredient.amount}</div>
               ))
@@ -61,23 +64,23 @@ export default function RecipeDetails() {
         </ul>
       </div>
 
-      <h3 >Instructions</h3>
+      <h1 >Instructions</h1>
 
       <ol className="instructions-container">
       
-        {recipeDetails.imageurl
+        {recipeDetails.name
           ? JSON.parse(recipeDetails.instructions).map((instruction) => (
               <li >{instruction}</li>
             ))
           : null}
       </ol>
-      <button className="edit" onClick={()=>navigate(`/recipes/${id}/edit`)}>Edit</button>
-        <button className="delete" onClick={()=>setDeleteConfirmation(true)}>Delete</button>
+      <button className="edit" onClick={()=>navigate(`/recipes/${id}/edit`)}>Edit Recipe</button>
+        <button className="delete" onClick={()=>setDeleteConfirmation(true)}>Delete Recipe</button>
         {deleteConfirmation?<div className="deleteConfirmation"> 
-        <h3>Are you sure that you want to delete this transaction?</h3>
+        <h3>Are you sure that you want to delete this Recipe?</h3>
 
+        <button onClick={deleteRecipes} className="yes">yes</button>
         <button onClick={()=>setDeleteConfirmation(false)} className="no">no</button>
-        <button onClick={()=>{}} className="yes">yes</button>
          </div>:null
         }
 
