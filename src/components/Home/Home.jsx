@@ -95,7 +95,13 @@ export default function Home() {
       </div>
       <hr />
       <div className="check-us-out">
-        <h3>Follow </h3>
+        <h3>Follow Us</h3>
+        <div className="check-us-out-container">
+          <div className="icon facebook"></div>
+          <div className="icon instagram"></div>
+          <div className="icon tiktok"></div>
+          <div className="icon twitter"></div>
+        </div>
       </div>
     </div>
   );
