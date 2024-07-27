@@ -45,6 +45,22 @@ export default function RecipeDetails() {
      
         
       </div>
+      <div className="time-container">
+        <h5
+        >Cooking time
+          <br />
+          {recipeDetails.cooking_time}</h5>
+        <h5
+        >Servings
+          <br />
+          {recipeDetails.servings}</h5>
+        <h5
+        >Calories_per_serving
+          <br />
+          {recipeDetails. calories_per_serving}</h5>
+     
+        
+      </div>
       <h1 >Ingredients</h1>
       <div className="ingredients-container">
      

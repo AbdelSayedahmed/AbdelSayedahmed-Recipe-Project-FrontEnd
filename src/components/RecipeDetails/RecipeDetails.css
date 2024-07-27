@@ -28,6 +28,14 @@
 
             
          }
+         .time-container{
+            display: flex;
+                    background: linear-gradient(45deg, blue,white);  
+                    justify-content: space-around;
+
+
+            
+         }
         
          .delete{
             background-color: red;
@@ -39,7 +47,6 @@
             font-size: large;
             margin-top: 2vw;
             margin-bottom: 3vw;
-            
             
             
         }
@@ -87,6 +94,9 @@
         border-radius: 2vw;
         margin-left: 2vw;
 
+
+       }
+       .time{
 
        }
     /* transform: translate(3vw,3vw); */
