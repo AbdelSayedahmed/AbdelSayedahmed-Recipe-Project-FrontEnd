@@ -91,7 +91,7 @@ export default function RecipeForm() {
       protein: form.protein || "Unspecified",
       carbohydrates: form.carbohydrates || "Unspecified",
       fat: form.fat || "Unspecified",
-      imageurl:form.imageurl
+      imageurl: form.imageurl,
     };
     try {
       let recipe;
