@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getRecipes } from "../../utils/functions.js";
+import { getRecipes, getRandomRecipes } from "../../utils/functions.js";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
@@ -20,6 +20,8 @@ export default function Home() {
   }, []);
 
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
+
+  const randomRecipes = getRandomRecipes(recipes);
 
   return (
     <div className="home-container">
@@ -45,14 +47,28 @@ export default function Home() {
               </div>
             </>
           ) : (
-            "Loading"
+            "Loading..."
           )}
         </div>
       </div>
       <hr />
       <div className="featured-recipes">
         <h3>Featured Recipes</h3>
-        <div className="featured-recipes"></div>
+        <div className="featured-recipes-container">
+          {randomRecipes.length > 0
+            ? randomRecipes.map((recipe) => (
+                <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+                  <h2>{recipe.name || "Loading..."}</h2>
+                  <div className="featured-recipes-container_img-container">
+                    <img
+                      src={recipe.imageurl}
+                      alt={`Image of ${recipe.name}`}
+                    />
+                  </div>
+                </Link>
+              ))
+            : "Loading..."}
+        </div>
       </div>
       <hr />
       <div className="latest-recipes">

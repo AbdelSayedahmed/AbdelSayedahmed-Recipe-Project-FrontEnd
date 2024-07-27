@@ -124,3 +124,19 @@ export async function updateRecipe(id, recipe) {
   const response = await fetch(`${URL}/recipes/${id}`, options);
   return await response.json();
 }
+
+// Get random recipes
+export function getRandomRecipes(recipes) {
+  const shuffled = [...recipes];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled.slice(0, 5);
+}
+
+// Get latest recipes
+export function getLatestRecipes(recipes) {
+  const sortedRecipes = recipes.sort((a, b) => b - a);
+  return sortedRecipes.slice(0, 5);
+}
