@@ -1,0 +1,17 @@
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found-container a {
+    border: 1px solid grey;
+    border-radius: 15px;
+    background-color: white;
+    padding: 5px 20px;
+}
+
+.not-found-container a:hover {
+    color: grey;
+}

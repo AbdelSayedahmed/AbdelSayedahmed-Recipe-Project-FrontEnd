@@ -9,7 +9,7 @@ import Nav from "./components/Nav/Nav.jsx";
 import RecipeForm from "./components/RecipeForm/RecipeForm.jsx";
 import Recipes from "./components/Recipes/Recipes.jsx";
 import RecipeDetails from "./components/RecipeDetails/RecipeDetails.jsx";
-
+import NotFound from "./components/NotFound/NotFound.jsx";
 
 // Styling
 import "./App.css";
@@ -25,6 +25,7 @@ export default function App() {
         <Route path="/recipes/:id" element={<RecipeDetails />} />
         <Route path="/recipes/:id/edit" element={<RecipeForm />} />
         <Route path="/recipes/new" element={<RecipeForm />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
