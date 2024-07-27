@@ -72,6 +72,16 @@ export const countryOrigins = [
   "Vietnamese",
 ];
 
+// Get all recipes
+export async function getRecipes() {
+  const response = await fetch(`${URL}/recipes`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+}
+
+// Create a recipe
 export async function createRecipe(recipe) {
   const options = {
     method: "POST",
@@ -90,6 +100,7 @@ export async function createRecipe(recipe) {
   }
 }
 
+// Get a recipe
 export async function getRecipe(id) {
   try {
     const response = await fetch(`${URL}/recipes/${id}`);
@@ -103,6 +114,7 @@ export async function getRecipe(id) {
   }
 }
 
+// Update a recipe
 export async function updateRecipe(id, recipe) {
   const options = {
     method: "PUT",
