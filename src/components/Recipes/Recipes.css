@@ -1,0 +1,15 @@
+.origin-container{display: flex;}
+
+.origin_element-container{
+    margin: auto;
+    img{
+        width: 7vw;
+        height: 7vw;
+        border-radius: 100%;
+        margin: 2vw;
+        margin-bottom: 0vw;
+    }
+    h4{margin-left: 4vw;
+        
+    }
+}
