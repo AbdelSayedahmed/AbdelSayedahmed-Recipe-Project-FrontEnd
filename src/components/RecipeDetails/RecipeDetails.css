@@ -5,17 +5,88 @@
         width: 40vw;
     }
     .ingredients-container{
-        text-align: center;
+        text-align: start;
         display: flex;
         transform: translate(42vw,0vw);
+        font-size: 1.3vw;
         /* background: linear-gradient(45deg, red,white);   */
     width: 40vw;  }
     .instructions-container{
-        /* font-weight: 700; */
+
+     text-align: start;
+     font-size: 1.7vw;
+     margin-left: 2vw;
+       
        
          }
-         li{
-            list-style-type: disc;
+        
+         .information-container{
+            display: flex;
+                    background: linear-gradient(45deg, red,white);  
+                    justify-content: space-around;
+
+
+            
          }
+        
+         .delete{
+            background-color: red;
+            color: white;
+            margin: 1vw;
+            padding: 1vw 2.5vw;
+            border:none;
+            border-radius: 1.5vw;
+            font-size: large;
+            margin-top: 2vw;
+            margin-bottom: 3vw;
+            
+            
+        }
+        .edit{
+            font-size: large;
+            background-color: blue;
+            color: white;
+            margin: 1vw;
+            padding: 1vw 2.5vw;
+            border:none;
+            border-radius: 1.5vw;
+        }
+        .deleteConfirmation{
+            background: rgba( 255, 255, 255, 0.35 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 14px );
+            -webkit-backdrop-filter: blur( 14px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            height: 15vw;
+            border-radius: 1vw;
+            transform: translate(0vw,-10vw);
+        }
+        .yes{
+            background-color: green;
+            transform: translate(1vw,1vw);
+        }
+        .no{
+            background-color: red;
+            transform: translate(0vw,1vw);
+    
+        }
+       ul{
+        transform: translate(-40vw,0vw);
+       }
+       .yes{
+        padding: 1vw 4vw;
+        border-radius: 2vw;
+        font-size: 2vw;
+        
+       }
+       .no{
+        padding:1vw 4vw;
+        font-size: 2vw;
+        border-radius: 2vw;
+        margin-left: 2vw;
+
+
+       }
     /* transform: translate(3vw,3vw); */
 }

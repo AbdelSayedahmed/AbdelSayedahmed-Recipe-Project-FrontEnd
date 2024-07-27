@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import "./RecipeDetails.css";
 
 export default function RecipeDetails() {
+  const [deleteConfirmation,setDeleteConfirmation]=useState(false)
   const [recipeDetails, setrecipeDetails] = useState({});
   const API = import.meta.env.VITE_API_URL;
 
@@ -18,24 +19,44 @@ export default function RecipeDetails() {
         console.log(res);
       });
   }, [id]);
+ 
+  function deleteRecipes(){
+    fetch(`${API}/recipes/${id}`,{method:`DELETE`}).then(()=>navigate(`/recipes`)).catch(error=>console.error(error))
+
+}
 
   return (
     <div className="recipedetails-container">
-      <h2>{recipeDetails.name}</h2>
-      <img src={recipeDetails.imageurl} alt="" />
-      {/* <p>{JSON.parse(recipeDetails.ingredients)?JSON.parse(recipeDetails.ingredients):null}</p> */}
-      <h3>Ingredients</h3>
+      <h2>{recipeDetails.name}({recipeDetails.origin})</h2>
+      <img src={recipeDetails.imageurl} alt={recipeDetails.imageurl} />
+      <div className="information-container">
+        <h5
+        >Carbs
+          <br />
+          {recipeDetails.carbohydrates}</h5>
+        <h5
+        >Protein
+          <br />
+          {recipeDetails.protein}</h5>
+        <h5
+        >Fat
+          <br />
+          {recipeDetails. fat}</h5>
+     
+        
+      </div>
+      <h1 >Ingredients</h1>
       <div className="ingredients-container">
      
         <ul>
-          {recipeDetails.imageurl
+          {recipeDetails.name
             ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
-                <div>{ingredient.ingredient}</div>
+                <li>{ingredient.ingredient}</li>
               ))
             : null}
         </ul>
         <ul>
-          {recipeDetails.imageurl
+          {recipeDetails.name
             ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
                 <div>{ingredient.amount}</div>
               ))
@@ -43,17 +64,26 @@ export default function RecipeDetails() {
         </ul>
       </div>
 
-      <h3 >Instructions</h3>
+      <h1 >Instructions</h1>
 
-      <ul className="instructions-container">
-        {" "}
-        {recipeDetails.imageurl
+      <ol className="instructions-container">
+      
+        {recipeDetails.name
           ? JSON.parse(recipeDetails.instructions).map((instruction) => (
-              <div>{instruction}</div>
+              <li >{instruction}</li>
             ))
           : null}
-      </ul>
-      {/* {JSON.parse(recipeDetails.instructions).map(instruction=><div>{instruction}</div>)} */}
+      </ol>
+      <button className="edit" onClick={()=>navigate(`/recipes/${id}/edit`)}>Edit Recipe</button>
+        <button className="delete" onClick={()=>setDeleteConfirmation(true)}>Delete Recipe</button>
+        {deleteConfirmation?<div className="deleteConfirmation"> 
+        <h3>Are you sure that you want to delete this Recipe?</h3>
+
+        <button onClick={deleteRecipes} className="yes">yes</button>
+        <button onClick={()=>setDeleteConfirmation(false)} className="no">no</button>
+         </div>:null
+        }
+
     </div>
   );
 }
