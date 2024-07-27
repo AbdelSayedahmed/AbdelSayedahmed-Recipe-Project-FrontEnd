@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getRecipes, getRandomRecipes } from "../../utils/functions.js";
+import {
+  getRecipes,
+  getRandomRecipes,
+  getLatestRecipes,
+} from "../../utils/functions.js";
 import { Link } from "react-router-dom";
 import "./Home.css";
 
@@ -20,8 +24,8 @@ export default function Home() {
   }, []);
 
   const randomRecipe = recipes[Math.floor(Math.random() * recipes.length)];
-
   const randomRecipes = getRandomRecipes(recipes);
+  const latestRecipes = getLatestRecipes(recipes);
 
   return (
     <div className="home-container">
@@ -52,14 +56,14 @@ export default function Home() {
         </div>
       </div>
       <hr />
-      <div className="featured-recipes">
+      <div className="recipe-list">
         <h3>Featured Recipes</h3>
-        <div className="featured-recipes-container">
+        <div className="recipe-list-container">
           {randomRecipes.length > 0
             ? randomRecipes.map((recipe) => (
                 <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
                   <h2>{recipe.name || "Loading..."}</h2>
-                  <div className="featured-recipes-container_img-container">
+                  <div className="recipe-list-container_img-container">
                     <img
                       src={recipe.imageurl}
                       alt={`Image of ${recipe.name}`}
@@ -71,8 +75,23 @@ export default function Home() {
         </div>
       </div>
       <hr />
-      <div className="latest-recipes">
+      <div className="recipe-list">
         <h3>Latest Recipes</h3>
+        <div className="recipe-list-container">
+          {latestRecipes.length > 0
+            ? latestRecipes.map((recipe) => (
+                <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+                  <h2>{recipe.name || "Loading..."}</h2>
+                  <div className="recipe-list-container_img-container">
+                    <img
+                      src={recipe.imageurl}
+                      alt={`Image of ${recipe.name}`}
+                    />
+                  </div>
+                </Link>
+              ))
+            : "Loading..."}
+        </div>
       </div>
       <hr />
       <div className="check-us-out">
