@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "../RecipeDetails/recipeDetails.css";
+import "./RecipeDetails.css";
 
 export default function RecipeDetails() {
   const [recipeDetails, setrecipeDetails] = useState({});
