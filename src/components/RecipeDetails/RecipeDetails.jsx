@@ -71,15 +71,15 @@ export default function RecipeDetails() {
       <div className="ingredients-container">
         <ul>
           {recipeDetails.name
-            ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
-                <li>{ingredient.ingredient}</li>
+            ? JSON.parse(recipeDetails.ingredients).map((ingredient, index) => (
+                <li key={index}>{ingredient.ingredient}</li>
               ))
             : null}
         </ul>
         <ul>
           {recipeDetails.name
-            ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
-                <div>{ingredient.amount}</div>
+            ? JSON.parse(recipeDetails.ingredients).map((ingredient, index) => (
+                <div key={index}>{ingredient.amount}</div>
               ))
             : null}
         </ul>
@@ -87,8 +87,8 @@ export default function RecipeDetails() {
       <h1>Instructions</h1>
       <ol className="instructions-container">
         {recipeDetails.name
-          ? JSON.parse(recipeDetails.instructions).map((instruction) => (
-              <li>{instruction}</li>
+          ? JSON.parse(recipeDetails.instructions).map((instruction, index) => (
+              <li key={index}>{instruction}</li>
             ))
           : null}
       </ol>

@@ -57,7 +57,7 @@ export default function Recipes() {
       </div>
       <div className="recipes-container">
         {recipes.map((recipe) => (
-          <Recipe recipe={recipe} />
+          <Recipe recipe={recipe} key={recipe.id} />
         ))}
       </div>
     </>
