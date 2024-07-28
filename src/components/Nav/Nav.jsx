@@ -6,7 +6,10 @@ export default function Nav() {
   return (
     <div className="nav-container">
       <Link to="/">
-        <img src="/culinary-compass-logo.png" alt="Culinary Compass Logo" />
+        <img
+          src="/app-logos/culinary-compass-logo.png"
+          alt="Culinary Compass Logo"
+        />
       </Link>
       <Link className="transitional" to="/recipes">
         Recipes

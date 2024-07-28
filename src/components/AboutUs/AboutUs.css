@@ -39,7 +39,6 @@
   }
 
   img {
-    width: 300px;
     display: block;
     margin: 10px auto;
     border-radius: 50%;
@@ -47,12 +46,13 @@
 
   .icons {
     display: flex;
-    gap: 0px;
+    gap: 20px;
   }
 
   .icon {
-    width: 4vw;
-    height: 4vw;
+    width: 2.5vw;
+    height: 2.5vw;
+    border-radius: 0px;
   }
 }
 
@@ -84,13 +84,11 @@
   }
 }
 
-.icons:hover img {
+.icon:hover {
   animation: shake 0.2s ease infinite;
 }
 
 .main-pic {
-
-
   height: 20vw;
   width: 20vw;
 }
