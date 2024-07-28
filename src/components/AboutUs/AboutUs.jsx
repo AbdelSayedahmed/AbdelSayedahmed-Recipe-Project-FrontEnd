@@ -19,22 +19,26 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./github.png" className="github icon" />
+              <img src="./media-logos/github.png" className="github icon" />
             </a>
             <a
               href="https://www.linkedin.com/in/ayyoub-belibel/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./linkedin.png" className="linkedin icon" />
+              <img src="./media-logos/linkedin.png" className="linkedin icon" />
             </a>
             <a href={`mailto:${"abelibel@pursuit.org"}`}>
-              <img src="./gmail.png" className="gmail icon" />
+              <img src="./media-logos/gmail.png" className="gmail icon" />
             </a>
           </div>
         </div>
         <div className="card">
-          <img className="main-pic" src="./abdel.png" alt="Abdel Sayedahmed" />
+          <img
+            className="main-pic"
+            src="./images/abdel.png"
+            alt="Abdel Sayedahmed"
+          />
           <h1>Abdel Sayedahmed</h1>
           <h2>Full Stack Developer</h2>
           <div className="icons">
@@ -43,17 +47,17 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./github.png" className="github icon" />
+              <img src="./media-logos/github.png" className="github icon" />
             </a>
             <a
               href="https://www.linkedin.com/in/abdelsayedahmed/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="./linkedin.png" className="linkedin icon" />
+              <img src="./media-logos/linkedin.png" className="linkedin icon" />
             </a>
             <a href={`mailto:${"asayedahmed@pursuit.org"}`}>
-              <img src="./gmail.png" className="gmail icon" />
+              <img src="./media-logos/gmail.png" className="gmail icon" />
             </a>
           </div>
         </div>

@@ -147,40 +147,40 @@
 }
 
 .icon.facebook {
-    background-image: url('/facebook.png');
+    background-image: url('/media-logos/facebook.png');
     background-size: cover;
 }
 
 .icon.facebook:hover {
-    background-image: url('/facebook-after.png');
+    background-image: url('/media-logos/facebook-after.png');
 }
 
 .icon.instagram {
-    background-image: url('/instagram.png');
+    background-image: url('/media-logos/instagram.png');
     background-size: cover;
 }
 
 .icon.instagram:hover {
-    background-image: url('/instagram-after.png');
+    background-image: url('/media-logos/instagram-after.png');
     background-size: cover;
 }
 
 .icon.tiktok {
-    background-image: url('/tik-tok.png');
+    background-image: url('/media-logos/tik-tok.png');
     background-size: cover;
 }
 
 .icon.tiktok:hover {
-    background-image: url('/tik-tok-after.png');
+    background-image: url('/media-logos/tik-tok-after.png');
     background-size: cover;
 }
 
 .icon.twitter {
-    background-image: url('/twitter.png');
+    background-image: url('/media-logos/twitter.png');
     background-size: cover;
 }
 
 .icon.twitter:hover {
-    background-image: url('/twitter-after.png');
+    background-image: url('/media-logos/twitter-after.png');
     background-size: cover;
 }
