@@ -47,21 +47,23 @@ export default function Recipes() {
             }}
             className="origin_element-container"
           >
-            <img src={element.imageurl} alt="" />
+            <div className="origin_element-container_img-container">
+              <img src={element.imageurl} alt="" />
+            </div>
             <h4>{element.origin}</h4>
           </div>
         ))}
       </div>
       <hr className="recipes-container_hr" />
-
       <div className="filtered-container">
         {filterRecipes.map((recipe) => (
           <div className="filtered-recipe">
-             <Link to={`/recipes/${recipe.id}`}>
-             <img src={recipe.imageurl} alt="" />
-             <div className="filtered-container_recipe-name" >{recipe.name}</div>
-    </Link>
-           
+            <Link to={`/recipes/${recipe.id}`}>
+              <img src={recipe.imageurl} alt="" />
+              <div className="filtered-container_recipe-name">
+                {recipe.name}
+              </div>
+            </Link>
           </div>
         ))}
       </div>
