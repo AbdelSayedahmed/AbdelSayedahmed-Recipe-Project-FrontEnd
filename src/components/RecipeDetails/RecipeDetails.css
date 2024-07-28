@@ -14,11 +14,20 @@
         width: 40vw;
     }
 
-    .instructions-container {
-        text-align: start;
-        font-size: 1.7vw;
-        margin-left: 2vw;
-    }
+     text-align: start;
+     font-size: 1.9vw;
+     margin-left: 2vw;
+
+       
+       
+         }
+        
+         .information-container{
+            display: flex;
+                    background: linear-gradient(45deg, red,white);  
+                    justify-content: space-around;
+                    font-size: large;
+                    /* color: white; */
 
     .information-container {
         display: flex;
@@ -26,11 +35,14 @@
         justify-content: space-around;
     }
 
-    .time-container {
-        display: flex;
-        background: linear-gradient(45deg, blue, white);
-        justify-content: space-around;
-    }
+            
+         }
+         .time-container{
+            display: flex;
+                    background: linear-gradient(45deg, blue,white);  
+                    justify-content: space-around;
+                    font-size: large;
+                    color: white;
 
     .delete {
         background-color: red;

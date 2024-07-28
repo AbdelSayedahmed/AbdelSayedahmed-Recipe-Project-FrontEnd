@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "./Recipes.css";
 import Recipe from "../Recipe/Recipe";
+import { Link } from "react-router-dom";
+
 export default function Recipes() {
   const [recipes, setRecipes] = useState([]);
   const [filterRecipes, setFilterRecipes] = useState([]);
@@ -21,14 +23,14 @@ export default function Recipes() {
 
   let array = [];
   let originArray = [];
-
   for (let element of recipes) {
     if (!array.includes(element.origin)) {
       originArray.push(element);
     }
     array.push(element.origin);
   }
-  const filteredArray = function () {
+
+  const filteredArray = function (cuisine) {
     let filter = recipes.filter((recipe) => recipe.origin === cuisine);
     console.log(cuisine);
 
@@ -41,7 +43,7 @@ export default function Recipes() {
           <div
             onClick={() => {
               setCuisine(element.origin);
-              filteredArray();
+              filteredArray(element.origin);
             }}
             className="origin_element-container"
           >
@@ -50,14 +52,29 @@ export default function Recipes() {
           </div>
         ))}
       </div>
+      <hr className="recipes-container_hr" />
+
+      <div className="filtered-container">
+        {filterRecipes.map((recipe) => (
+          <div className="filtered-recipe">
+             <Link to={`/recipes/${recipe.id}`}>
+             <img src={recipe.imageurl} alt="" />
+             <div className="filtered-container_recipe-name" >{recipe.name}</div>
+    </Link>
+           
+          </div>
+        ))}
+      </div>
+
       <div className="filter-origin">
         {filterRecipes.map((el) => {
           <div>{el.name}</div>;
         })}
       </div>
+      <hr className="recipes-container_hr" />
       <div className="recipes-container">
         {recipes.map((recipe) => (
-          <Recipe recipe={recipe} key={recipe.id} />
+          <Recipe recipe={recipe} />
         ))}
       </div>
     </>

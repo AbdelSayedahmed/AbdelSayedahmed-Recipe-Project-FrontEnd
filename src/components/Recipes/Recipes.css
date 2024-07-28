@@ -1,11 +1,28 @@
-.origin-container {
-    display: flex;
+.origin-container{display: flex;}
+.filtered-recipe{
+    img{ height: 10vw;
+        width: 10vw;
+    border-radius: 1vw;}
+   
 }
+.recipes-container_hr {
+    background-color: #202334;
+    height: 40px;
+    border: none;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
 
-.origin_element-container {
-    margin: auto;
+}
+.filtered-container_recipe-name{
+    text-align: center;
 
-    .filtered-image {
+}
+.filtered-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.origin_element-container{
+    .filtered-image{
         height: 20vw;
         border-radius: 0vw;
         width: 20vw;
@@ -26,6 +43,8 @@
 
 .filtered-recipes {
     display: flex;
+
+
 }
 
 .filter-origin {
