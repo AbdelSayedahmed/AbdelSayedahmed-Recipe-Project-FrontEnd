@@ -47,7 +47,9 @@ export default function Recipes() {
             }}
             className="origin_element-container"
           >
-            <img src={element.imageurl} alt="" />
+            <div className="origin_element-container-img-container">
+              <img src={element.imageurl} alt={`Image of ${element.name}`} />
+            </div>
             <h4>{element.origin}</h4>
           </div>
         ))}
@@ -55,10 +57,12 @@ export default function Recipes() {
       <hr className="recipes-container_hr" />
 
       <div className="filtered-container">
-        {filterRecipes.map((recipe) => (
+        {filterRecipes.map((recipe, index) => (
           <div className="filtered-recipe">
-            <Link to={`/recipes/${recipe.id}`}>
-              <img src={recipe.imageurl} alt="" />
+            <Link to={`/recipes/${recipe.id}`} key={index}>
+              <div className="filtered-recipe-img-container">
+                <img src={recipe.imageurl} alt={`Image of ${recipe.name}`} />
+              </div>
               <div className="filtered-container_recipe-name">
                 {recipe.name}
               </div>
@@ -74,8 +78,8 @@ export default function Recipes() {
       </div>
       <hr className="recipes-container_hr" />
       <div className="recipes-container">
-        {recipes.map((recipe) => (
-          <Recipe recipe={recipe} />
+        {recipes.map((recipe, index) => (
+          <Recipe recipe={recipe} key={index} />
         ))}
       </div>
     </>
