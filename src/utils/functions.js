@@ -137,6 +137,6 @@ export function getRandomRecipes(recipes) {
 
 // Get latest recipes
 export function getLatestRecipes(recipes) {
-  const sortedRecipes = recipes.sort((a, b) => b - a);
+  const sortedRecipes = recipes.sort((a, b) => b.id - a.id);
   return sortedRecipes.slice(0, 5);
 }

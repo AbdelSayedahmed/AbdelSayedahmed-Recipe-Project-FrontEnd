@@ -1,11 +1,22 @@
 .recipe-of-the-day,
-.featured-recipes,
+.recipe-list,
 .latest-recipes,
-.check-us-out {
+.check-us-out,
+.brief-summary {
     margin: 20px;
 }
 
-.recipe-of-the-day-container_img-container {
+.brief-summary {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.brief-summary-para, .recipe-of-the-day h3, .check-us-out h3 {
+    margin-right: 20px;
+    text-align: center;
+}
+
+.recipe-of-the-day-container_img-container, .brief-summary_img-container {
     border-radius: 15%;
     width: 30vw;
     height: 30vw;
@@ -13,7 +24,7 @@
     position: relative;
 }
 
-.recipe-of-the-day-container_img-container img {
+.recipe-of-the-day-container_img-container img, .brief-summary_img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -24,7 +35,7 @@
 
 .home-container hr {
     background-color: #202334;
-    height: 20px;
+    height: 40px;
     border: none;
     margin: 0px;
 }
@@ -77,13 +88,14 @@
     font-size: 20px;
 }
 
-.featured-recipes-container {
+.recipe-list-container {
+    height: min-content;
     display: flex;
-    overflow: scroll;
-    gap: 20px
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
-.featured-recipes-container a {
+.recipe-list-container a {
     font-size: 16px;
     padding: 10px;
     transition: transform 0.3s ease;
@@ -91,16 +103,16 @@
     text-align: center;
 }
 
-.featured-recipes-container a:hover {
+.recipe-list-container a:hover {
     transform: scale(1.05);
 }
 
 
-.featured-recipes-container h2 {
+.recipe-list-container h2 {
     text-align: center;
 }
 
-.featured-recipes-container_img-container {
+.recipe-list-container_img-container {
     border-radius: 15%;
     width: 25vw;
     height: 25vw;
@@ -108,11 +120,67 @@
     position: relative;
 }
 
-.featured-recipes-container_img-container img {
+.recipe-list-container_img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
+}
+
+.check-us-out-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
+
+.icon.facebook {
+    background-image: url('/facebook.png');
+    background-size: cover;
+}
+
+.icon.facebook:hover {
+    background-image: url('/facebook-after.png');
+}
+
+.icon.instagram {
+    background-image: url('/instagram.png');
+    background-size: cover;
+}
+
+.icon.instagram:hover {
+    background-image: url('/instagram-after.png');
+    background-size: cover;
+}
+
+.icon.tiktok {
+    background-image: url('/tik-tok.png');
+    background-size: cover;
+}
+
+.icon.tiktok:hover {
+    background-image: url('/tik-tok-after.png');
+    background-size: cover;
+}
+
+.icon.twitter {
+    background-image: url('/twitter.png');
+    background-size: cover;
+}
+
+.icon.twitter:hover {
+    background-image: url('/twitter-after.png');
+    background-size: cover;
 }
