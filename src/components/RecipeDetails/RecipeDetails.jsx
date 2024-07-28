@@ -28,10 +28,11 @@ export default function RecipeDetails() {
 
   return (
     <div className="recipe-details-container">
-      <h2>
-        {recipeDetails.name}({recipeDetails.origin})
-      </h2>
-      <img src={recipeDetails.imageurl} alt={recipeDetails.imageurl} />
+      <h2>{`${recipeDetails.name} (${recipeDetails.origin})`}</h2>
+      <img
+        src={recipeDetails.imageurl}
+        alt={`Image of ${recipeDetails.name}`}
+      />
       <div className="information-container">
         <h5>
           Carbs

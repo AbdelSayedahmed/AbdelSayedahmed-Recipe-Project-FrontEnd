@@ -21,7 +21,7 @@ export default function Recipes() {
 
   let array = [];
   let originArray = [];
-  
+
   for (let element of recipes) {
     if (!array.includes(element.origin)) {
       originArray.push(element);
