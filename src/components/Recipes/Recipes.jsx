@@ -1,62 +1,82 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Recipes.css";
 import Recipe from "../Recipe/Recipe";
+import { Link } from "react-router-dom";
+
 export default function Recipes() {
-  const [recipes,setRecipes]=useState([])
-  const [filterRecipes,setFilterRecipes]=useState([])
-  const [cuisine,setCuisine]=useState(``)
+  const [recipes, setRecipes] = useState([]);
+  const [filterRecipes, setFilterRecipes] = useState([]);
+  const [cuisine, setCuisine] = useState(``);
 
   const API = import.meta.env.VITE_API_URL;
-
 
   useEffect(() => {
     fetch(`${API}/recipes`)
       .then((res) => {
-      return res.json()
+        return res.json();
       })
-      .then(resJSON => {
-        setRecipes(resJSON)
-   
+      .then((resJSON) => {
+        setRecipes(resJSON);
       })
-    .catch((error) => console.error(error))
-  }, [])
+      .catch((error) => console.error(error));
+  }, []);
 
-  let array=[]
- let originArray=[]
-  for (let element of recipes){
-    if(!array.includes(element.origin)){
-      originArray.push(element)
-
+  let array = [];
+  let originArray = [];
+  for (let element of recipes) {
+    if (!array.includes(element.origin)) {
+      originArray.push(element);
     }
-    array.push(element.origin)
-    
+    array.push(element.origin);
   }
 
-  const filteredArray=function(){
-    let filter=recipes.filter(recipe=>recipe.origin===cuisine)
-   console.log(cuisine)
+  const filteredArray = function (cuisine) {
+    let filter = recipes.filter((recipe) => recipe.origin === cuisine);
+    console.log(cuisine);
 
     setFilterRecipes(filter);
-
-  }
+  };
   return (
-  <>
-  <div className="origin-container">
-    {...originArray.map(element=><div onClick={()=>{setCuisine(element.origin)
-     filteredArray();
-}}  className="origin_element-container">
-      <img src={element.imageurl} alt="" />
-      <h4>{element.origin}</h4>
+    <>
+      <div className="origin-container">
+        {...originArray.map((element) => (
+          <div
+            onClick={() => {
+              setCuisine(element.origin);
+              filteredArray(element.origin);
+            }}
+            className="origin_element-container"
+          >
+            <img src={element.imageurl} alt="" />
+            <h4>{element.origin}</h4>
+          </div>
+        ))}
+      </div>
+      <hr className="recipes-container_hr" />
 
-    </div>)} 
+      <div className="filtered-container">
+        {filterRecipes.map((recipe) => (
+          <div className="filtered-recipe">
+             <Link to={`/recipes/${recipe.id}`}>
+             <img src={recipe.imageurl} alt="" />
+             <div className="filtered-container_recipe-name" >{recipe.name}</div>
+    </Link>
+           
+          </div>
+        ))}
+      </div>
 
-
-
-  </div>
-  <div className="filter-origin">{filterRecipes.map(el=>{<div>{el.name}</div>})}</div>
-
-  <div className="recipes-container">{recipes.map(recipe=><Recipe recipe={recipe}/>)}
-    
-  </div></>
+      <div className="filter-origin">
+        {filterRecipes.map((el) => {
+          <div>{el.name}</div>;
+        })}
+      </div>
+      <hr className="recipes-container_hr" />
+      <div className="recipes-container">
+        {recipes.map((recipe) => (
+          <Recipe recipe={recipe} />
+        ))}
+      </div>
+    </>
   );
 }
