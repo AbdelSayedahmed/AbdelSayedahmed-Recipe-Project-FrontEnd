@@ -34,11 +34,7 @@ export default function About() {
           </div>
         </div>
         <div className="card">
-          <img
-            className="main-pic"
-            src="https://ca.slack-edge.com/TCVA3PF24-U064KLDFYKB-1e41f20ca5e6-512"
-            alt="Abdel Sayedahmed"
-          />
+          <img className="main-pic" src="./abdel.png" alt="Abdel Sayedahmed" />
           <h1>Abdel Sayedahmed</h1>
           <h2>Full Stack Developer</h2>
           <div className="icons">
