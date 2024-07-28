@@ -14,8 +14,9 @@
     .instructions-container{
 
      text-align: start;
-     font-size: 1.7vw;
+     font-size: 1.9vw;
      margin-left: 2vw;
+
        
        
          }
@@ -24,6 +25,8 @@
             display: flex;
                     background: linear-gradient(45deg, red,white);  
                     justify-content: space-around;
+                    font-size: large;
+                    /* color: white; */
 
 
             
@@ -32,6 +35,8 @@
             display: flex;
                     background: linear-gradient(45deg, blue,white);  
                     justify-content: space-around;
+                    font-size: large;
+                    color: white;
 
 
             
