@@ -6,6 +6,12 @@
     margin: auto;
 
     .filtered-image {
+    justify-content: space-evenly;
+}
+.origin_element-container{
+    justify-content: space-evenly;
+
+    .filtered-image{
         height: 20vw;
         border-radius: 0vw;
         width: 20vw;
