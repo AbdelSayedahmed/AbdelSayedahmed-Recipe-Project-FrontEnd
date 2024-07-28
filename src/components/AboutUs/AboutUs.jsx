@@ -19,30 +19,20 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src="https://github.blog/wp-content/uploads/2024/07/github-logo.png"
-                className="github icon"
-              />
+              <img src="./github.png" className="github icon" />
             </a>
             <a
               href="https://www.linkedin.com/in/ayyoub-belibel/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
-                className="linkedin icon"
-              />
+              <img src="./linkedin.png" className="linkedin icon" />
             </a>
             <a href={`mailto:${"abelibel@pursuit.org"}`}>
-              <img
-                src="https://cdn2.downdetector.com/static/uploads/logo/gmail_logo_hSykdMC.jpeg"
-                className="gmail icon"
-              />
+              <img src="./gmail.png" className="gmail icon" />
             </a>
           </div>
         </div>
-
         <div className="card">
           <img
             className="main-pic"
@@ -57,26 +47,17 @@ export default function About() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src="https://github.blog/wp-content/uploads/2024/07/github-logo.png"
-                className="github icon"
-              />
+              <img src="./github.png" className="github icon" />
             </a>
             <a
               href="https://www.linkedin.com/in/abdelsayedahmed/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
-                src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
-                className="linkedin icon"
-              />
+              <img src="./linkedin.png" className="linkedin icon" />
             </a>
             <a href={`mailto:${"asayedahmed@pursuit.org"}`}>
-              <img
-                src="https://cdn2.downdetector.com/static/uploads/logo/gmail_logo_hSykdMC.jpeg"
-                className="gmail icon"
-              />
+              <img src="./gmail.png" className="gmail icon" />
             </a>
           </div>
         </div>
