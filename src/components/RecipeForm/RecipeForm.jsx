@@ -37,11 +37,11 @@ export default function RecipeForm() {
         try {
           const recipe = await getRecipe(id);
           const parsedIngredients = JSON.parse(recipe.ingredients);
-          const parsedInstructions = JSON.parse(recipe.instructions).join(" ");
+          const parsedInstructions = JSON.parse(recipe.instructions);
           setForm({
             ...recipe,
             ingredients: parsedIngredients,
-            instructions: parsedInstructions,
+            instructions: parsedInstructions.join(". "),
           });
         } catch (error) {
           console.error("Failed to fetch recipe:", error);
