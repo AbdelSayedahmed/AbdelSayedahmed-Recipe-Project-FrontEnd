@@ -28,6 +28,14 @@
 
             
          }
+         .time-container{
+            display: flex;
+                    background: linear-gradient(45deg, blue,white);  
+                    justify-content: space-around;
+
+
+            
+         }
         
          .delete{
             background-color: red;
@@ -60,7 +68,8 @@
             border: 1px solid rgba( 255, 255, 255, 0.18 );
             height: 15vw;
             border-radius: 1vw;
-            transform: translate(0vw,-10vw);
+            transform: translate(30vw,-10vw);
+            width:40vw
         }
         .yes{
             background-color: green;
@@ -88,5 +97,6 @@
 
 
        }
+     
     /* transform: translate(3vw,3vw); */
 }

@@ -3,6 +3,9 @@ import "./Recipes.css";
 import Recipe from "../Recipe/Recipe";
 export default function Recipes() {
   const [recipes,setRecipes]=useState([])
+  const [filterRecipes,setFilterRecipes]=useState([])
+  const [cuisine,setCuisine]=useState(``)
+
   const API = import.meta.env.VITE_API_URL;
 
 
@@ -28,20 +31,30 @@ export default function Recipes() {
     array.push(element.origin)
     
   }
-  console.log(originArray)
 
-  
+  const filteredArray=function(){
+    let filter=recipes.filter(recipe=>recipe.origin===cuisine)
+   console.log(cuisine)
+
+    setFilterRecipes(filter);
+
+  }
   return (
   <>
   <div className="origin-container">
-    {...originArray.map(element=><div className="origin_element-container">
+    {...originArray.map(element=><div onClick={()=>{setCuisine(element.origin)
+     filteredArray();
+}}  className="origin_element-container">
       <img src={element.imageurl} alt="" />
       <h4>{element.origin}</h4>
 
-    </div>)}
+    </div>)} 
+
 
 
   </div>
+  <div className="filter-origin">{filterRecipes.map(el=>{<div>{el.name}</div>})}</div>
+
   <div className="recipes-container">{recipes.map(recipe=><Recipe recipe={recipe}/>)}
     
   </div></>
