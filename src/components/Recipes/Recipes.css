@@ -6,34 +6,36 @@
     margin: auto;
 
     .filtered-image {
-    justify-content: space-evenly;
-}
-.origin_element-container{
-    justify-content: space-evenly;
-
-    .filtered-image{
-        height: 20vw;
-        border-radius: 0vw;
-        width: 20vw;
+        justify-content: space-evenly;
     }
 
-    img {
-        width: 7vw;
-        height: 7vw;
-        border-radius: 100%;
-        margin: 2vw;
-        margin-bottom: 0vw;
+    .origin_element-container {
+        justify-content: space-evenly;
+
+        .filtered-image {
+            height: 20vw;
+            border-radius: 0vw;
+            width: 20vw;
+        }
+
+        img {
+            width: 7vw;
+            height: 7vw;
+            border-radius: 100%;
+            margin: 2vw;
+            margin-bottom: 0vw;
+        }
+
+        h4 {
+            margin-left: 4vw;
+        }
     }
 
-    h4 {
-        margin-left: 4vw;
+    .filtered-recipes {
+        display: flex;
     }
-}
 
-.filtered-recipes {
-    display: flex;
-}
-
-.filter-origin {
-    display: flex;
+    .filter-origin {
+        display: flex;
+    }
 }
