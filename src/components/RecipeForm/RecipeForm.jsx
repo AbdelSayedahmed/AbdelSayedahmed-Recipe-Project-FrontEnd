@@ -114,7 +114,6 @@ export default function RecipeForm() {
           <RecipeInfo form={form} handleChange={handleChange} />
           <Ingredients
             form={form}
-            handleChange={handleChange}
             ingredient={ingredient}
             setIngredient={setIngredient}
             amount={amount}

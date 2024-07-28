@@ -1,28 +1,33 @@
-.origin-container{display: flex;}
+.origin-container {
+    display: flex;
+}
 
-.origin_element-container{
-    .filtered-image{
+.origin_element-container {
+    margin: auto;
+
+    .filtered-image {
         height: 20vw;
         border-radius: 0vw;
         width: 20vw;
     }
-    margin: auto;
-    img{
+
+    img {
         width: 7vw;
         height: 7vw;
         border-radius: 100%;
         margin: 2vw;
         margin-bottom: 0vw;
     }
-    h4{margin-left: 4vw;
-        
+
+    h4 {
+        margin-left: 4vw;
     }
 }
-.filtered-recipes{
-    display: flex;
 
-}
-.filter-origin{
+.filtered-recipes {
     display: flex;
-    
+}
+
+.filter-origin {
+    display: flex;
 }

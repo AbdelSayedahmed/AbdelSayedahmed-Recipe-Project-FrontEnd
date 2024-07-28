@@ -1,5 +1,5 @@
+import React from "react";
 import "./AboutUs.css";
-// import ayyoubImage from './assets/images/ayyoub.png'
 
 export default function About() {
   return (
@@ -30,7 +30,7 @@ export default function About() {
               rel="noopener noreferrer"
             >
               <img
-              src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
+                src="https://static.vecteezy.com/system/resources/previews/018/930/480/non_2x/linkedin-logo-linkedin-icon-transparent-free-png.png"
                 className="linkedin icon"
               />
             </a>
