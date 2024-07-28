@@ -1,4 +1,4 @@
-.recipe-details-container {
+.recipedetails-container {
     text-align: center;
 
     img {
@@ -14,35 +14,26 @@
         width: 40vw;
     }
 
-     text-align: start;
-     font-size: 1.9vw;
-     margin-left: 2vw;
-
-       
-       
-         }
-        
-         .information-container{
-            display: flex;
-                    background: linear-gradient(45deg, red,white);  
-                    justify-content: space-around;
-                    font-size: large;
-                    /* color: white; */
+    .instructions-container {
+        text-align: start;
+        font-size: 1.9vw;
+        margin-left: 2vw;
+    }
 
     .information-container {
         display: flex;
         background: linear-gradient(45deg, red, white);
         justify-content: space-around;
+        font-size: large;
     }
 
-            
-         }
-         .time-container{
-            display: flex;
-                    background: linear-gradient(45deg, blue,white);  
-                    justify-content: space-around;
-                    font-size: large;
-                    color: white;
+    .time-container {
+        display: flex;
+        background: linear-gradient(45deg, blue, white);
+        justify-content: space-around;
+        font-size: large;
+        color: white;
+    }
 
     .delete {
         background-color: red;

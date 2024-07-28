@@ -32,6 +32,8 @@ export default function Recipes() {
 
   const filteredArray = function (cuisine) {
     let filter = recipes.filter((recipe) => recipe.origin === cuisine);
+    console.log(cuisine);
+
     setFilterRecipes(filter);
   };
   return (
@@ -45,17 +47,16 @@ export default function Recipes() {
             }}
             className="origin_element-container"
           >
-            <div className="origin_element-container_img-container">
-              <img src={element.imageurl} alt="" />
-            </div>
+            <img src={element.imageurl} alt="" />
             <h4>{element.origin}</h4>
           </div>
         ))}
       </div>
       <hr className="recipes-container_hr" />
+
       <div className="filtered-container">
-        {filterRecipes.map((recipe, index) => (
-          <div className="filtered-recipe" key={index}>
+        {filterRecipes.map((recipe) => (
+          <div className="filtered-recipe">
             <Link to={`/recipes/${recipe.id}`}>
               <img src={recipe.imageurl} alt="" />
               <div className="filtered-container_recipe-name">
@@ -73,8 +74,8 @@ export default function Recipes() {
       </div>
       <hr className="recipes-container_hr" />
       <div className="recipes-container">
-        {recipes.map((recipe, index) => (
-          <Recipe recipe={recipe} key={index} />
+        {recipes.map((recipe) => (
+          <Recipe recipe={recipe} />
         ))}
       </div>
     </>

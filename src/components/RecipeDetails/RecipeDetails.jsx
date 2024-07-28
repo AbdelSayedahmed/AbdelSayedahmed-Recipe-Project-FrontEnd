@@ -5,7 +5,7 @@ import "./RecipeDetails.css";
 
 export default function RecipeDetails() {
   const [deleteConfirmation, setDeleteConfirmation] = useState(false);
-  const [recipeDetails, setRecipeDetails] = useState({});
+  const [recipeDetails, setrecipeDetails] = useState({});
   const API = import.meta.env.VITE_API_URL;
 
   let navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function RecipeDetails() {
     fetch(`${API}/recipes/${id}`)
       .then((res) => res.json())
       .then((res) => {
-        setRecipeDetails(res);
+        setrecipeDetails(res);
         console.log(res);
       });
   }, [id]);
@@ -27,12 +27,11 @@ export default function RecipeDetails() {
   }
 
   return (
-    <div className="recipe-details-container">
-      <h2>{`${recipeDetails.name} (${recipeDetails.origin})`}</h2>
-      <img
-        src={recipeDetails.imageurl}
-        alt={`Image of ${recipeDetails.name}`}
-      />
+    <div className="recipedetails-container">
+      <h2>
+        {recipeDetails.name}({recipeDetails.origin})
+      </h2>
+      <img src={recipeDetails.imageurl} alt={recipeDetails.imageurl} />
       <div className="information-container">
         <h5>
           Carbs
@@ -71,24 +70,26 @@ export default function RecipeDetails() {
       <div className="ingredients-container">
         <ul>
           {recipeDetails.name
-            ? JSON.parse(recipeDetails.ingredients).map((ingredient, index) => (
-                <li key={index}>{ingredient.ingredient}</li>
+            ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
+                <li>{ingredient.ingredient}</li>
               ))
             : null}
         </ul>
         <ul>
           {recipeDetails.name
-            ? JSON.parse(recipeDetails.ingredients).map((ingredient, index) => (
-                <div key={index}>{ingredient.amount}</div>
+            ? JSON.parse(recipeDetails.ingredients).map((ingredient) => (
+                <div>{ingredient.amount}</div>
               ))
             : null}
         </ul>
       </div>
+
       <h1>Instructions</h1>
+
       <ol className="instructions-container">
         {recipeDetails.name
-          ? JSON.parse(recipeDetails.instructions).map((instruction, index) => (
-              <li key={index}>{instruction}</li>
+          ? JSON.parse(recipeDetails.instructions).map((instruction) => (
+              <li>{instruction}</li>
             ))
           : null}
       </ol>
@@ -101,6 +102,7 @@ export default function RecipeDetails() {
       {deleteConfirmation ? (
         <div className="deleteConfirmation">
           <h3>Are you sure that you want to delete this Recipe?</h3>
+
           <button onClick={deleteRecipes} className="yes">
             yes
           </button>
